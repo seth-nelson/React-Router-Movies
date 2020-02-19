@@ -3,7 +3,7 @@ import axios from 'axios';
 import MovieCard from './MovieCard';
 
 const Movie = (props) => {
-  const [movie, setMovie] = useState();
+  const [movie, setMovie] = useState(null);
  
   useEffect(() => {
     // const id = 1;
@@ -32,10 +32,11 @@ const Movie = (props) => {
   if (!movie) {
     return <div>Loading movie information...</div>;
   }
-
-    return <MovieCard movie={movie} />;
-    // props above?
     const { title, director, metascore, stars } = movie;
+    return <MovieCard movie={movie} {...props} />;
+  };
+    // props above?
+
 //   return (
 //     <div className="save-wrapper">
 //       <div className="movie-card">
